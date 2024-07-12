@@ -1,0 +1,149 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca1qpb4ypesly"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_nd312"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nd312")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+color = Color(0.153085, 0.308726, 0.491349, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="calculo" type="Label" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+text = "Calculo BTU
+trabalho - lab II
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0961501, 0.372581, 0.751745, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.9
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="largura" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Largura"
+horizontal_alignment = 1
+
+[node name="t_largura" type="LineEdit" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "0"
+placeholder_text = "inserir numero"
+virtual_keyboard_type = 3
+draw_control_chars = true
+
+[node name="comprimento" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Comprimento"
+horizontal_alignment = 1
+
+[node name="t_comprimento" type="LineEdit" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "0"
+placeholder_text = "inserir numero"
+virtual_keyboard_type = 3
+draw_control_chars = true
+
+[node name="isolamento" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Isolamento Termico"
+horizontal_alignment = 1
+
+[node name="isolamento_termico" type="OptionButton" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = "Bem isolado"
+popup/item_0/id = 0
+popup/item_1/text = "Isolamento moderado"
+popup/item_1/id = 1
+popup/item_2/text = "Mal isolamento"
+popup/item_2/id = 2
+
+[node name="incidencia_sol" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Incidencia solar no ambiente"
+horizontal_alignment = 1
+
+[node name="sol" type="OptionButton" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+fit_to_longest_item = false
+allow_reselect = true
+popup/item_0/text = "Nenhum Sol"
+popup/item_0/id = 0
+popup/item_1/text = "Sol moderado"
+popup/item_1/id = 1
+popup/item_2/text = "Muito sol"
+popup/item_2/id = 2
+
+[node name="pessoas" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Quantidade de Pessoas"
+horizontal_alignment = 1
+
+[node name="t_pessoas" type="LineEdit" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "1"
+virtual_keyboard_type = 2
+
+[node name="equipamentos" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Quantidade de equipamentos eletronicos
+"
+horizontal_alignment = 1
+
+[node name="t_equipamentos" type="LineEdit" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "0"
+virtual_keyboard_type = 2
+
+[node name="calcular" type="Button" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Calcular BTU"
+
+[node name="resultado" type="Label" parent="ColorRect2/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Preencha as informaçoes e precione \"Calcular BTU\""
+
+[connection signal="pressed" from="ColorRect2/MarginContainer2/VBoxContainer/calcular" to="." method="_on_calcular_pressed"]
